@@ -2,7 +2,7 @@
 
 set -x
 
-out_dir=$(realpath /media/drive/private/misc/apr-lab-recording/* | fzf)
+out_dir=$(find /media/drive/private/misc/apr-lab-recording -type d | fzf)
 
 adb pull /sdcard/Huawei/BetaClub/Grab/modem/zips/ $out_dir
 adb shell "rm -rf /sdcard/Huawei/BetaClub/Grab/modem/zips/"

@@ -2,11 +2,6 @@
 
 set -x
 
-# close two popups
-adb shell input tap 500 2480
-sleep 15s
-adb shell input tap 860 2480
-
 adb shell am force-stop com.huawei.betaclub
 sleep 1s
 adb shell am start com.huawei.betaclub
