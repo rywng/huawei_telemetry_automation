@@ -2,11 +2,19 @@
 
 set -x
 
-out_dir=$(find /media/drive/private/misc/apr-lab-recording -type d | fzf)
-
-adb pull /sdcard/Huawei/BetaClub/Grab/modem/zips/ $out_dir
+adb pull /sdcard/Huawei/BetaClub/Grab/modem/zips/ .
 adb shell "rm -rf /sdcard/Huawei/BetaClub/Grab/modem/zips/"
 
+adb shell input keyevent 4 # go back to main page
+sleep 1s
+adb shell input tap 600 1340 # system settings
+sleep 1s
+adb shell input tap 600 320 # disable settings
+sleep 1s
+adb shell input tap 1080 780 # click the lever
+sleep 1s
+adb shell input keyevent 4 # back to setting
+sleep 1s
 adb shell input keyevent 4 # go back to main page
 sleep 1s
 adb shell input tap 500 1000 # clean logs
